@@ -1,25 +1,26 @@
 import api from "../../ApiStore/Api";
+import { createSlice } from "@reduxjs/toolkit";
 
-/*Make two slices and define constant bookApi
-get books
-get a book
-*/
-/*Get all books!*/
+// Injecting endpoints into the main api instance
 const bookApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getBooks: builder.query({
-      query: () => ({
-        url: "/books",
-        method: "GET",
-      }),
-      provideTags: ["books"],
+      query: () => "/books",
+      providesTags: ["Books"],
     }),
-    /*Get a book */
-    getBook: builder.query({
-      query: (id) => ({
-        url: `/books/${id}`,
-        method: "GET",
-      }),
+    getBookById: builder.query({
+      query: (id) => `/books/${id}`,
+      providesTags: ["Books"],
     }),
   }),
 });
+
+// a slice to hold book-related state
+const bookSlice = createSlice({
+  name: "books",
+  initialState: {},
+  reducers: {},
+});
+
+export default bookSlice.reducer;
+export const { useGetBooksQuery, useGetBookByIdQuery } = bookApi;

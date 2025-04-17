@@ -1,4 +1,4 @@
-import { api } from "../../../ApiStore/Api";
+import api from "../../ApiStore/Api";
 import { createSlice } from "@reduxjs/toolkit";
 
 // Inject the book reservation mutation into the API
