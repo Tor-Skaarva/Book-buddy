@@ -16,7 +16,7 @@ export default function BookList() {
       <h2 className="mb-4">Library Catalog</h2>
       <form className="searchbar">
         <input
-          className="form-control mr-sm-2"
+          className="form-control mr-sm-2 shadow-sm"
           type="search"
           placeholder="Search by title or author"
           aria-label="Search"
@@ -27,7 +27,7 @@ export default function BookList() {
         {books?.map((book) => (
           <div className="col-md-4 mb-4" key={book.id}>
             <div className="card h-100 shadow-sm">
-              <div className="card-body d-flex flex-column">
+              <div className="card-body">
                 <h5 className="card-title">{book.title}</h5>
                 <p className="card-text text-muted">Author: {book.author}</p>
                 <p className="card-text flex-grow-1">
@@ -36,7 +36,7 @@ export default function BookList() {
                 <img src={book.coverimage} alt={book.title} />
                 <Link
                   to={`/books/${book.id}`}
-                  className="btn btn-primary mt-auto"
+                  className="btn btn-primary"
                 >
                   View Details
                 </Link>
