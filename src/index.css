@@ -30,17 +30,24 @@ nav {
   text-decoration: none;
 }
 
+/* BookList/Home Page */
+.searchbar {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
 /* SingleBook */
+.return-home {
+  color: black;
+  font-size: large;
+}
 .details-container {
   width: 80rem;
   height: auto;
   margin: 0 auto;
-  padding:20px;
-  background-color: pink;
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   display: flex;
-  /* display: grid;
-  grid-template-columns: 2 1fr; */
 }
 .details-container img {
   width: 30rem;
@@ -49,11 +56,21 @@ nav {
 .details-info {
   margin: 2rem;
   flex-direction: column;
+  justify-content: space-between;
+}
+.details-info h2 {
+  padding: 10px;
+}
+.details-info h5 {
+  margin-left: 10px;
+}
+.details-info p {
+  padding: 10px;
 }
 .details-info button {
   background-color: rgba(0, 99, 141, 255);
   color: white;
-  border: none;
+  border-color: rgba(0, 99, 141, 255);
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-size: 1rem;
@@ -62,7 +79,9 @@ nav {
   transition: background-color 0.3s ease, transform 0.1s ease;
 }
 .details-info button:hover {
-  background-color: #bec73ed2;
+  color: rgba(0, 99, 141, 255);
+  border-color: rgba(0, 99, 141, 255);
+  background-color: #ffffff;
 }
 .details-info button:active {
   transform: scale(0.98);

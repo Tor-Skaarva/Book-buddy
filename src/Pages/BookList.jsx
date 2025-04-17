@@ -1,6 +1,6 @@
 /* TODO - add your code to create a functional React component that displays all of the available books in the library's catalog. Fetch the book data from the provided API. Users should be able to click on an individual book to navigate to the SingleBook component and view its details. */ import React from "react";
 import { useGetBooksQuery } from "../components/Slicers/Bookslice";
-import { Navlink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function BookList() {
@@ -14,6 +14,15 @@ export default function BookList() {
   return (
     <div className="container mt-4">
       <h2 className="mb-4">Library Catalog</h2>
+      <form className="searchbar">
+        <input
+          className="form-control mr-sm-2"
+          type="search"
+          placeholder="Search by title or author"
+          aria-label="Search"
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </form>
       <div className="row">
         {books?.map((book) => (
           <div className="col-md-4 mb-4" key={book.id}>
@@ -25,12 +34,12 @@ export default function BookList() {
                   {book.description?.slice(0, 100)}...
                 </p>
                 <img src={book.coverimage} alt={book.title} />
-                <Navlink
+                <Link
                   to={`/books/${book.id}`}
                   className="btn btn-primary mt-auto"
                 >
                   View Details
-                </Navlink>
+                </Link>
               </div>
             </div>
           </div>

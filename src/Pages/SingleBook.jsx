@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useGetBookByIdQuery } from "../components/Slicers/Bookslice";
 
 export default function SingleBook() {
@@ -12,7 +12,9 @@ export default function SingleBook() {
 
   return (
     <>
-      <h6>Return to Home</h6>
+      <Link to={`/`} className="return-home">
+        Return to catalog
+      </Link>
       <div className="details-container">
         <img src={book.coverimage} alt={book.title} />
         <div className="details-info">
