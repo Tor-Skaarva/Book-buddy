@@ -1,7 +1,7 @@
 /* TODO - add your code to create a functional React component that renders a registration form */
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useRegisterMutation } from "../components/Slicers/RegisterSlice"; // Adjust path
+import { useRegisterMutation } from "../components/Slicers/AuthSlice";
 import { useNavigate } from "react-router-dom";
 
 export default function RegisterPage() {
@@ -28,9 +28,9 @@ export default function RegisterPage() {
     }
 
     try {
-      const res = await register({ name, email, password }).unwrap();
-      localStorage.setItem("token", res.token); // Optional: handle in slice
-      navigate("/"); // Redirect to homepage or login
+      const res = await register({ firstname: name, email, password }).unwrap();
+      localStorage.setItem("token", res.token);
+      navigate("/user/me");
     } catch (err) {
       console.error("Registration failed:", err);
     }

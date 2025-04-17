@@ -1,8 +1,8 @@
-/* TODO - add your code to create a functional React component that renders a login form */
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useLoginMutation } from "../components/Slicers/RegisterSlice";
+import { useLoginMutation } from "../components/Slicers/UserSlice";
 import { useNavigate } from "react-router-dom";
+import { Nav } from "react-bootstrap";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -20,7 +20,9 @@ export default function LoginPage() {
       console.error("Login failed:", err);
     }
   };
-
+  function navClick() {
+    navigate("/register");
+  }
   return (
     <div className="container mt-5" style={{ maxWidth: "500px" }}>
       <h2 className="mb-4">Login</h2>
@@ -62,6 +64,11 @@ export default function LoginPage() {
         >
           {isLoading ? "Logging in..." : "Login"}
         </button>
+        <div>
+          <button onClick={navClick} type="button" className="btn btn-primary">
+            Sign up
+          </button>
+        </div>
       </form>
     </div>
   );

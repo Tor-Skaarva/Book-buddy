@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import bookApi from "../components/Slicers/Bookslice";
+import api from "./Api";
 
-export default store = configureStore({
-  reducer: { [bookApi.reducerPath]: bookApi.reducer },
+const store = configureStore({
+  reducer: { [api.reducerPath]: api.reducer },
   middleware: (getDefaultMiddlewear) =>
     getDefaultMiddlewear().concat(api.middleware),
 });
+
+export default store;

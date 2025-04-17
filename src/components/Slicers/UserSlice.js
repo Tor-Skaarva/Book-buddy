@@ -1,15 +1,16 @@
 import api from "../../ApiStore/Api";
+import { createSlice } from "@reduxjs/toolkit";
 
-/* creating an Api for registered user */
+// Creating an API for user login and fetching user account
 const userApi = api.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation({
-      query: ({ ...login }) => ({
-        url: "/users",
+      query: (login) => ({
+        url: "/users/login",
         method: "POST",
         body: login,
       }),
-      invalidateTags: ["User"],
+      invalidatesTags: ["User"],
     }),
     getAccount: builder.query({
       query: () => ({
@@ -20,3 +21,20 @@ const userApi = api.injectEndpoints({
     }),
   }),
 });
+
+const storeToken = (state, { payload }) => {
+  localStorage.setItem("token", payload.token);
+};
+
+const LoginSlice = createSlice({
+  name: "login",
+  initialState: {},
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addMatcher(userApi.endpoints.login.matchFulfilled, storeToken);
+  },
+});
+
+export default LoginSlice.reducer;
+
+export const { useLoginMutation, useGetAccountQuery } = userApi;
