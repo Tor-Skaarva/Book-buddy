@@ -4,22 +4,21 @@ import "../index.css";
 
 export default function NavBar() {
   return (
-    <div className="nav-container">
-      <nav>
-        <NavLink to="/">
-          <img src="" className="nav-logo" alt="Book Buddy logo"></img>
-        </NavLink>
-        <NavLink to="/user/me" className="nav-links">
-          My Account
-        </NavLink>
-        <NavLink to="/login" className="nav-links">
-          Login
-        </NavLink>
-        <NavLink to="/register" className="nav-links">
-          Register
-        </NavLink>
-      </nav>
-    </div>
+    <nav>
+      <NavLink to="/">
+        <img
+          src="./src/assets/Tor-Block30Logo2.png"
+          className="nav-logo"
+          alt="Book Buddy logo"
+        ></img>
+      </NavLink>
+      <div className="nav-links-container">
+        <NavLink to="/">All Books</NavLink>
+        <NavLink to="/register">Register</NavLink>
+        <NavLink to="/login">Login</NavLink>
+        <NavLink to="/user/me">My Account</NavLink>
+      </div>
+    </nav>
   );
 }
 
