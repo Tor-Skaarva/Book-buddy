@@ -29,3 +29,41 @@ nav {
   font-size: x-large;
   text-decoration: none;
 }
+
+/* SingleBook */
+.details-container {
+  width: 80rem;
+  height: auto;
+  margin: 0 auto;
+  padding:20px;
+  background-color: pink;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  /* display: grid;
+  grid-template-columns: 2 1fr; */
+}
+.details-container img {
+  width: 30rem;
+  height: auto;
+}
+.details-info {
+  margin: 2rem;
+  flex-direction: column;
+}
+.details-info button {
+  background-color: rgba(0, 99, 141, 255);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+.details-info button:hover {
+  background-color: #bec73ed2;
+}
+.details-info button:active {
+  transform: scale(0.98);
+}

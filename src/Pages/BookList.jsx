@@ -1,6 +1,6 @@
 /* TODO - add your code to create a functional React component that displays all of the available books in the library's catalog. Fetch the book data from the provided API. Users should be able to click on an individual book to navigate to the SingleBook component and view its details. */ import React from "react";
 import { useGetBooksQuery } from "../components/Slicers/Bookslice";
-import { Link } from "react-router-dom";
+import { Navlink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function BookList() {
@@ -25,12 +25,12 @@ export default function BookList() {
                   {book.description?.slice(0, 100)}...
                 </p>
                 <img src={book.coverimage} alt={book.title} />
-                <Link
+                <Navlink
                   to={`/books/${book.id}`}
                   className="btn btn-primary mt-auto"
                 >
                   View Details
-                </Link>
+                </Navlink>
               </div>
             </div>
           </div>
